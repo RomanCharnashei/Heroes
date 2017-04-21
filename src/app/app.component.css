@@ -1,0 +1,13 @@
+.layout__header {
+    margin-bottom: 20px;
+}
+.layout {
+    overflow: hidden;
+}
+.layout__list {
+    width: 300px;
+    float: left;
+}
+.layout__detail {
+    margin-left: 310px;
+}
