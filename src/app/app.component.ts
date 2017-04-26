@@ -13,7 +13,10 @@ export class AppComponent {
   private _heroes: Array<Hero>;
 
   constructor(heroesService: HeroesService) {
-    this._heroes = heroesService.GetAllHeroes();
+
+    heroesService.GetAllHeroes().subscribe(heroes => {
+      this._heroes = heroes;
+    });
   }
 
   GetAllHeroes(): Array<Hero> {

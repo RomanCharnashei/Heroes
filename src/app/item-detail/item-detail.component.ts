@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, Params } from "@angular/router";
+import { HeroesService } from "app/services/heroes.service";
+import { Hero } from "app/models/hero.model";
 
 @Component({
   selector: 'app-item-detail',
@@ -6,10 +9,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./item-detail.component.css']
 })
 export class ItemDetailComponent implements OnInit {
+    hero: Hero = new Hero();
 
-  constructor() { }
+    constructor(private router: Router,
+      private activatedRoute: ActivatedRoute,
+      private heroesService: HeroesService) { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+      this.activatedRoute.params.forEach((params: Params) => {
+              let id = +params["id"];
+              this.heroesService
+                .GetHeroById(id)
+                .subscribe(hero => {
+                  this.hero = hero;
+                },
+                error =>  console.log(error));
+          });
+    }
 
 }

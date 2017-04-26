@@ -10,6 +10,8 @@ import { ListComponent, ListHeaderComponent, ListItemComponent } from './list';
 import { ItemDetailComponent } from './item-detail/item-detail.component';
 import { HeroesService } from "app/services/heroes.service";
 import { DashboardComponent } from "app/dashboard/dashboard.component";
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService }  from './services/in-memory-db.service';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { DashboardComponent } from "app/dashboard/dashboard.component";
     BrowserModule,
     FormsModule,
     HttpModule,
+    InMemoryWebApiModule.forRoot(InMemoryDataService),
     RouterModule.forRoot([
       {
         path: '',
