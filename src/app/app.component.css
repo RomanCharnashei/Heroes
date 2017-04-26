@@ -1,13 +1,21 @@
 .layout__header {
     margin-bottom: 20px;
 }
+
 .layout {
     overflow: hidden;
 }
+
 .layout__list {
     width: 300px;
     float: left;
+    border: 1px solid black;
+    padding: 10px;
+    box-sizing: border-box;
 }
-.layout__detail {
+
+.layout__details {
     margin-left: 310px;
+    border: 1px solid black;
+    padding: 20px 10px;
 }

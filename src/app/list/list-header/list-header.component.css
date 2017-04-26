@@ -1,4 +1,9 @@
 .list-header {
     border: 1px solid black;
+}
+
+.list-header__search-input {
+    width: 100%;
     padding: 10px;
+    box-sizing: border-box;
 }

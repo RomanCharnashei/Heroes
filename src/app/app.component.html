@@ -3,9 +3,9 @@
 </div>
 <div class="layout">
 	<div class="layout__list">
-  		<app-list></app-list>
+  		<app-list [heroes]="GetAllHeroes()"></app-list>
 	</div>
-	<div class="layout__detail">
-		<app-item-detail></app-item-detail>
+	<div class="layout__details">
+		<router-outlet></router-outlet>
 	</div>
 </div>
