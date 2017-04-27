@@ -3,7 +3,7 @@
 </div>
 <div class="layout">
 	<div class="layout__list">
-  		<app-list [heroes]="GetAllHeroes()"></app-list>
+  		<app-list [heroes]="GetAllHeroes()" (deleteHeroEv)="deleteHero($event)"></app-list>
 	</div>
 	<div class="layout__details">
 		<router-outlet></router-outlet>

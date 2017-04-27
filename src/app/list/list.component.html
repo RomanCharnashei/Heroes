@@ -1,8 +1,8 @@
 <ul class="list">
   <li class="list__item">
-    <app-list-header></app-list-header>
+    <app-list-header (searchKeyPress)="searchName = $event"></app-list-header>
   </li>
-  <li *ngFor="let hero of heroes" class="list__item">
-    <app-list-item [hero]="hero"></app-list-item>
+  <li *ngFor="let hero of heroes | nameFilter:searchName" class="list__item">
+    <app-list-item [hero]="hero" (deleteHeroEv)="deleteHero($event)"></app-list-item>
   </li>
 </ul>

@@ -8,10 +8,11 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { ListComponent, ListHeaderComponent, ListItemComponent } from './list';
 import { ItemDetailComponent } from './item-detail/item-detail.component';
-import { HeroesService } from "app/services/heroes.service";
+import { HeroesService } from "app/common/services/heroes.service";
 import { DashboardComponent } from "app/dashboard/dashboard.component";
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService }  from './services/in-memory-db.service';
+import { InMemoryDataService }  from 'app/common/services/in-memory-db.service';
+import { NameFilterPipe } from './common/pipes/name-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -21,13 +22,14 @@ import { InMemoryDataService }  from './services/in-memory-db.service';
     ListHeaderComponent,
     ListItemComponent,
     ItemDetailComponent,
-    DashboardComponent
+    DashboardComponent,
+    NameFilterPipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataService),
+    InMemoryWebApiModule.forRoot(InMemoryDataService, {delay: 0}),
     RouterModule.forRoot([
       {
         path: '',

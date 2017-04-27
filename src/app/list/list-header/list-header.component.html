@@ -1,3 +1,4 @@
 <div class="list-header">
-  <input class="list-header__search-input" type="text" name="search" placeholder="Search">
+  <input [ngModel]='model' (ngModelChange)='modelChanged.next($event)' class="list-header__search-input" type="text" name="search" placeholder="Search">
+  <a class="list-header__add-btn" href="#">+</a>
 </div>

@@ -3,7 +3,16 @@
 }
 
 .list-header__search-input {
-    width: 100%;
+    width: 90%;
     padding: 10px;
     box-sizing: border-box;
+    margin: 0;
+}
+.list-header__add-btn {
+   text-decoration: none;
+   color: black;
+   font-size: 18px;
+   display: inline-block;
+   border: 1px solid black;
+   padding: 3px;
 }

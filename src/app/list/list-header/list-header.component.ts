@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Subject } from "rxjs/Rx";
 
 @Component({
   selector: 'app-list-header',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListHeaderComponent implements OnInit {
 
-  constructor() { }
+	@Output() searchKeyPress = new EventEmitter<string>();
+	model: string;
+	modelChanged: Subject<string> = new Subject<string>();
 
-  ngOnInit() {
-  }
+	constructor()
+	{
+		this.modelChanged
+            .debounceTime(300) // wait 300ms after the last event before emitting last event
+            .distinctUntilChanged() // only emit if value is different from previous value
+            .subscribe(model => this.searchKeyPress.emit(model));
+	}
+
+
+	ngOnInit()
+	{
+
+	}
 
 }
