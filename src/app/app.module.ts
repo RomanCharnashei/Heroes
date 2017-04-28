@@ -13,6 +13,7 @@ import { DashboardComponent } from "app/dashboard/dashboard.component";
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from 'app/common/services/in-memory-db.service';
 import { NameFilterPipe } from './common/pipes/name-filter.pipe';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { NameFilterPipe } from './common/pipes/name-filter.pipe';
     ListItemComponent,
     ItemDetailComponent,
     DashboardComponent,
-    NameFilterPipe
+    NameFilterPipe,
+    EditComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +41,10 @@ import { NameFilterPipe } from './common/pipes/name-filter.pipe';
       {
         path: 'dashboard',
         component: DashboardComponent
+      },
+      {
+        path: 'hero/create',
+        component: EditComponent
       },
       {
         path: 'hero/:id',

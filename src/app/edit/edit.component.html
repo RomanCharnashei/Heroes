@@ -1,0 +1,24 @@
+<form class="hero-form" #f="ngForm" (ngSubmit)="onSubmit($event)">
+  <div class="form-line">
+      <label for="name">Name:</label>
+      <input 
+        type="text" 
+        name="name" 
+        #name="ngModel" 
+        [(ngModel)]="hero.name" 
+        required
+        minlength="3"
+        [ngClass]="{
+          'danger': name.invalid && (name.dirty || name.touched),
+          'success': name.valid && (name.dirty || name.touched)}">
+
+      <div class="error-msg" *ngIf="name.errors && (name.dirty || name.touched)">
+        <p *ngIf="name.errors.required">Name is required</p>
+        <p *ngIf="name.errors.minlength">Min langth is 3 character</p>
+      </div>
+
+  </div>
+  <p class="form-line">
+      <input type="submit" value="Save" [disabled]="f.invalid">
+  </p> 
+</form>

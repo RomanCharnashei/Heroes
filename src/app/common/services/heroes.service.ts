@@ -30,8 +30,15 @@ export class HeroesService {
 
   DeleteHero(hero: Hero)
   {
-    console.log(hero);
+
     return this.http.delete(this._heroesUrl + `/${hero.id}`)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
+  CreateHero(hero: Hero)
+  {
+    return this.http.put(this._heroesUrl, hero)
       .map(this.extractData)
       .catch(this.handleError);
   }

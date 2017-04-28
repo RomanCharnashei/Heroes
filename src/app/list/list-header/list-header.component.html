@@ -1,4 +1,13 @@
 <div class="list-header">
-  <input [ngModel]='model' (ngModelChange)='modelChanged.next($event)' class="list-header__search-input" type="text" name="search" placeholder="Search">
-  <a class="list-header__add-btn" href="#">+</a>
+
+  <input 
+    [ngModel]='model' 
+    (ngModelChange)='modelChanged.next($event)' 
+    class="list-header__search-input" 
+    type="text" 
+    name="search" 
+    placeholder="Search">
+
+  <a class="list-header__add-btn" routerLink="/hero/create">+</a>
+
 </div>
